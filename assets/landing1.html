@@ -179,25 +179,25 @@
               you have a smooth and comfortable ride</p>
             <!-- Contact form-->
             <div class="card border-0 bg-primary py-4 px-xxl-4">
-              <form method="post" action="acbus" class="card-body dark-mode">
+              <form id="form1" action="acbus" method="post" class="card-body dark-mode">
                 <h2 class="h3 card-title text-center pb-2 pb-xxl-3">Reserve your bus</h2>
                 <div class="mb-3">
                   <label class="form-label fs-base" for="email">Email address</label>
-                  <input class="form-control form-control-lg" type="email" placeholder="johnDoe@example.com" required id="email">
+                  <input name="email" class="form-control form-control-lg" type="email" placeholder="johnDoe@example.com" required id="email">
                 </div>
                 <div class="mb-3">
                   <label class="form-label fs-base" for="number">Phone No.</label>
-                  <input class="form-control form-control-lg" type="tel" placeholder="0712345678" required id="number">
+                  <input name="number" class="form-control form-control-lg" type="tel" placeholder="0712345678" required id="number">
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Date and time</label>
                   <div class="position-relative">
-                    <input class="form-control form-control-lg date-picker pe-5" type="text" placeholder="Choose date/time" data-datepicker-options="{&quot;enableTime&quot;: true, &quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y H:i&quot;, &quot;dateFormat&quot;: &quot;Y-m-d H:i&quot;}" required><i class="ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3"></i>
+                    <input name="date" class="form-control form-control-lg date-picker pe-5" type="text" placeholder="Choose date/time" data-datepicker-options="{&quot;enableTime&quot;: true, &quot;altInput&quot;: true, &quot;altFormat&quot;: &quot;F j, Y H:i&quot;, &quot;dateFormat&quot;: &quot;Y-m-d H:i&quot;}" required><i class="ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3"></i>
                   </div>
                 </div>
                 <div class="mb-3">
                   <label class="form-label fs-base" for="seats">Number of seats</label>
-                  <select class="form-select form-select-lg" required id="seats">
+                  <select name="seats" class="form-select form-select-lg" required id="seats">
                     <option style="color: black;" value="28" selected>28</option>
                     <option style="color: black;" value="32">32</option>
                     <option style="color: black;" value="37">37</option>
