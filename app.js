@@ -62,6 +62,10 @@ async function sendEmail(message) {
 
 app.use('/assets', express.static('assets'));
 
+app.get('/f2', function (req, res) {
+  res.sendFile(path.join(__dirname + '/assets/form2.html'));
+});
+
 app.get('/q1', function (req, res) {
   res.sendFile(path.join(__dirname + '/assets/customerq1.html'));
 });
@@ -75,13 +79,36 @@ app.get('/nonac', function (req, res) {
 });
 
 app.post('/nonacbus', function (req, res) {
-  const email = req.body.email;
-  const phone = req.body.number;
-  const date_time = req.body.date;
+  let date_time = req.body.date;
   const seats = req.body.seats;
 
+  date_time = encodeURIComponent(date_time);
+
+  let redirectURl = `/f2?bustype=ac&datetime=${date_time}&seats=${seats}`
+
+  return res.redirect(redirectURl);
+});
+
+app.get('/b1', function (req, res) {
+  res.sendFile(path.join(__dirname + '/assets/bye.html'));
+});
+
+app.post('/bookbus', function (req, res) {
+  let bustype = req.body.bustype;
+  const email = req.body.email;
+  const phone = req.body.number;
+  const date_time = req.body.datetime;
+  const seats = req.body.seats;
+
+  if (bustype == 'ac') {
+    bustype = "A/C"
+  }
+  else if (bustype == 'nonac') {
+    bustype = 'Non A/C'
+  };
+
   const message = `
-  Bus type = Non-A/C, E-mail = ${email} 
+  Bus type = ${bustype}, E-mail = ${email} 
   Phone No. = ${phone} 
   Date and time = ${date_time} 
   Number of seats = ${seats}
@@ -90,10 +117,6 @@ app.post('/nonacbus', function (req, res) {
   sendEmail(message);
 
   return res.redirect('/thank');
-});
-
-app.get('/b1', function (req, res) {
-  res.sendFile(path.join(__dirname + '/assets/bye.html'));
 });
 
 app.get('/ac', function (req, res) {
@@ -101,21 +124,14 @@ app.get('/ac', function (req, res) {
 });
 
 app.post('/acbus', function (req, res) {
-  const email = req.body.email;
-  const phone = req.body.number;
-  const date_time = req.body.date;
+  let date_time = req.body.date;
   const seats = req.body.seats;
 
-  const message = `
-  Bus type = A/C, E-mail = ${email} 
-  Phone No. = ${phone} 
-  Date and time = ${date_time} 
-  Number of seats = ${seats}
-  `
+  date_time = encodeURIComponent(date_time);
 
-  sendEmail(message);
+  let redirectURl = `/f2?bustype=ac&datetime=${date_time}&seats=${seats}`
 
-  return res.redirect('/thank');
+  return res.redirect(redirectURl);
 });
 
 app.get('/', function (req, res) {
