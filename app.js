@@ -58,9 +58,13 @@ async function sendEmail(message) {
   } catch (error) {
     console.error('Error sending email:', error);
   }
-};
+}
 
 app.use('/assets', express.static('assets'));
+
+app.get('/thank', function (req, res) {
+  res.sendFile(path.join(__dirname + '/assets/thank.html'));
+});
 
 app.get('/f2', function (req, res) {
   res.sendFile(path.join(__dirname + '/assets/form2.html'));
@@ -68,10 +72,6 @@ app.get('/f2', function (req, res) {
 
 app.get('/q1', function (req, res) {
   res.sendFile(path.join(__dirname + '/assets/customerq1.html'));
-});
-
-app.get('/thank', function (req, res) {
-  res.sendFile(path.join(__dirname + '/assets/thank.html'));
 });
 
 app.get('/nonac', function (req, res) {
@@ -116,7 +116,7 @@ app.post('/bookbus', function (req, res) {
 
   sendEmail(message);
 
-  return res.redirect('/thank');
+  return res.send('success');
 });
 
 app.get('/ac', function (req, res) {
