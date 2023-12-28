@@ -84,7 +84,7 @@ app.post('/nonacbus', function (req, res) {
 
   date_time = encodeURIComponent(date_time);
 
-  let redirectURl = `/f2?bustype=ac&datetime=${date_time}&seats=${seats}`
+  let redirectURl = `/f2?bustype=nonac&datetime=${date_time}&seats=${seats}`
 
   return res.redirect(redirectURl);
 });
