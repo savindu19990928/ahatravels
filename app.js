@@ -27,7 +27,7 @@ const oauth2Client = new google.auth.OAuth2(
 
 
 oauth2Client.setCredentials({
-  refresh_token: '1//04ad89XCEDVE-CgYIARAAGAQSNwF-L9Ir-e3RZ3gGy3fbqUfq-NWEYjWNPYuJ99YbJIPAot07Ri8hjEdUnlOdM0V93XmHLhP-FDs',
+  refresh_token: '1//04wc8LwHt9gJBCgYIARAAGAQSNwF-L9IrMDDgCmAMP0Y_mRKQ2cN6QbxPK5jRCcsudwvm622OmC28MNIbKOrM3WmphCHLnWrROHU',
 });
 
 const transporter = nodemailer.createTransport({
@@ -40,7 +40,7 @@ const transporter = nodemailer.createTransport({
     user: 'travelsaha04@gmail.com',
     clientId: '289331454238-s92sd0iq5k955c7t9hncab9gdflr5ovf.apps.googleusercontent.com',
     clientSecret: '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',
-    refreshToken: '1//04ad89XCEDVE-CgYIARAAGAQSNwF-L9Ir-e3RZ3gGy3fbqUfq-NWEYjWNPYuJ99YbJIPAot07Ri8hjEdUnlOdM0V93XmHLhP-FDs',
+    refreshToken: '1//04wc8LwHt9gJBCgYIARAAGAQSNwF-L9IrMDDgCmAMP0Y_mRKQ2cN6QbxPK5jRCcsudwvm622OmC28MNIbKOrM3WmphCHLnWrROHU',
     accessToken: oauth2Client.getAccessToken()
   },
 });
