@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Aha Bus Tours</title>
+  <!-- SEO Meta Tags-->
+  <meta name="author" content="Devrious">
+  <!-- Viewport-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicon and Touch Icons-->
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../assets/favicon/site.webmanifest">
+  <link rel="mask-icon" color="#6366f1" href="../assets/favicon/safari-pinned-tab.svg">
+  <meta name="msapplication-TileColor" content="#080032">
+  <meta name="msapplication-config" content="../assets/favicon/browserconfig.xml">
+  <meta name="theme-color" content="white">
+  <!-- Theme mode-->
+  <script>
+    let mode = window.localStorage.getItem('mode'),
+      root = document.getElementsByTagName('html')[0];
+    if (mode !== undefined && mode === 'dark') {
+      root.classList.add('dark-mode');
+    } else {
+      root.classList.remove('dark-mode');
+    }
+  </script>
+  <!-- Page loading styles-->
+  <style>
+    .page-loading {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-transition: all .4s .2s ease-in-out;
+      transition: all .4s .2s ease-in-out;
+      background-color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 9999;
+    }
+
+    .dark-mode .page-loading {
+      background-color: #121519;
+    }
+
+    .page-loading.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .page-loading-inner {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      -webkit-transition: opacity .2s ease-in-out;
+      transition: opacity .2s ease-in-out;
+      opacity: 0;
+    }
+
+    .page-loading.active>.page-loading-inner {
+      opacity: 1;
+    }
+
+    .page-loading-inner>span {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #6f788b;
+    }
+
+    .dark-mode .page-loading-inner>span {
+      color: #fff;
+      opacity: .6;
+    }
+
+    .page-spinner {
+      display: inline-block;
+      width: 2.75rem;
+      height: 2.75rem;
+      margin-bottom: .75rem;
+      vertical-align: text-bottom;
+      background-color: #d7dde2;
+      border-radius: 50%;
+      opacity: 0;
+      -webkit-animation: spinner .75s linear infinite;
+      animation: spinner .75s linear infinite;
+    }
+
+    .dark-mode .page-spinner {
+      background-color: rgba(255, 255, 255, .25);
+    }
+
+    main {
+      background: linear-gradient(to top, #fff, #bfa700);
+      background-repeat: no-repeat;
+    }
+
+    .page-wrapper {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @-webkit-keyframes spinner {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      50% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+
+    @keyframes spinner {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      50% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section h2 {
+      margin-bottom: 10px;
+    }
+  </style>
+  <!-- Page loading scripts-->
+  <script>
+    (function() {
+      window.onload = function() {
+        const preloader = document.querySelector('.page-loading');
+        preloader.classList.remove('active');
+        setTimeout(function() {
+          preloader.remove();
+        }, 1500);
+      };
+    })();
+  </script>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NWKR289W');
+  </script>
+  <!-- End Google Tag Manager -->
+  <!-- Import Google Font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" id="google-font">
+  <!-- Vendor styles-->
+  <!-- Main Theme Styles + Bootstrap-->
+  <link rel="stylesheet" media="screen" href="../assets/css/theme.min.css">
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWKR289W" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- Page loading spinner-->
+  <div class="page-loading active">
+    <div class="page-loading-inner">
+      <div class="page-spinner"></div><span>Loading...</span>
+    </div>
+  </div>
+  <!-- Page wrapper-->
+  <main class="page-wrapper">
+    <!-- Page content-->
+    <div class="d-flex flex-column align-items-center position-relative h-100 px-3 pt-5">
+      <h1 class="mb-5 mt-3">Terms and Conditions</h1>
+      <!-- Content-->
+      <div class="mt-auto" style="max-width: 700px;">
+        <div class="section">
+          <h2>Booking Process</h2>
+          <p>To book a trip bus, customers must submit a booking request through our website or contact our booking service directly. Bookings are considered confirmed only upon receipt of a deposit or full payment, as specified by our booking team.</p>
+        </div>
+
+        <div class="section">
+          <h2>Payment Terms</h2>
+          <p>We accept payments via card, bank transfer, or cash. A deposit of 25% of the total booking amount is required to confirm the reservation.</p>
+        </div>
+
+        <div style="background-color: #fff;" class="section">
+          <h2 style="background-color: #fff;">Refund Policy</h2>
+          <p style="background-color: #fff;">We will deduct 30% of the deposited amount when refunding. We will need at least a week's time to refund the advanced payments.</p>
+        </div>
+
+        <div class="section">
+          <h2>Change Policy</h2>
+          <p>Changes to bookings, such as alterations to the departure time or destination, may be requested subject to availability.</p>
+        </div>
+
+        <div class="section">
+          <h2>Responsibilities of the Service Provider</h2>
+          <p>We will provide a well-maintained bus equipped with all necessary essentials as agreed upon at the time of booking. Our drivers are licensed professionals with extensive experience in passenger transportation.</p>
+        </div>
+
+        <div class="section">
+          <h2>Responsibilities of the Customer</h2>
+          <p>Customers are responsible for providing accurate trip details, including the desired pick-up and drop-off locations and times. Customers must adhere to the agreed-upon schedule to ensure timely arrival at destinations.</p>
+        </div>
+
+        <div class="section">
+          <h2>Vehicle Usage</h2>
+          <p>The trip bus may only be used for the purposes specified in the booking agreement. Illegal items and illegal activities are strictly prohibited inside the bus.</p>
+        </div>
+
+        <div class="section">
+          <h2>Liability</h2>
+          <p>While every precaution is taken to ensure the safety of our passengers, we are not liable for accidents, injuries, or damages that occur during the trip which are beyond our control. Customers are advised to obtain appropriate travel insurance coverage.</p>
+        </div>
+
+        <div class="section">
+          <h2>Force Majeure</h2>
+          <p>In the event of circumstances beyond our control, such as natural disasters or strikes, we reserve the right to cancel or reschedule bookings. Customers will be notified of any changes to their bookings as soon as possible.</p>
+        </div>
+
+        <div class="section">
+          <h2>Termination of Agreement</h2>
+          <p>Either party may terminate the agreement in writing if the other party breaches any of its obligations under these terms and conditions. Termination of the agreement does not relieve the customer of any payment obligations incurred prior to termination.</p>
+        </div>
+
+        <div class="section">
+          <h2>Dispute Resolution</h2>
+          <p>Any disputes arising from this agreement shall be resolved through negotiation between the parties. If negotiation fails, the parties agree to submit the dispute to mediation in accordance with the laws of the Government.</p>
+        </div>
+
+        <div class="section">
+          <h2>Miscellaneous</h2>
+          <p>Customers are responsible for any damages caused to the bus or its contents during the trip. In case of emergency during the trip, customers should contact the driver.</p>
+        </div>
+
+        <p>By booking a trip bus with us, customers acknowledge that they have read, understood, and agreed to abide by these terms and conditions.</p>
+      </div>
+      <!-- Copyright-->
+      <p class="w-100 fs-sm pt-5 mt-auto" style="max-width: 700px;"><span class="text-muted">&copy; All rights reserved by </span>Aha Bus Tours</p>
+    </div>
+  </main>
+  <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll>
+    <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="19" fill="none" stroke="#bfa700" stroke-width="1.5" stroke-miterlimit="10"></circle>
+    </svg><i style="color: #bfa700;" class="ai-arrow-up"></i></a>
+  <!-- Vendor scripts: js libraries and plugins-->
+  <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+  <!-- Main theme script-->
+  <script src="../assets/js/theme.min.js"></script>
+</body>
+
+</html>

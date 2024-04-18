@@ -62,6 +62,10 @@ async function sendEmail(message) {
 
 app.use('/assets', express.static('assets'));
 
+app.get('/tt', function (req, res) {
+  res.sendFile(path.join(__dirname + '/assets/tt.html'));
+});
+
 app.get('/thank', function (req, res) {
   res.sendFile(path.join(__dirname + '/assets/thank.html'));
 });
@@ -112,6 +116,7 @@ app.post('/bookbus', function (req, res) {
   Phone No. = ${phone} 
   Date and time = ${date_time} 
   Number of seats = ${seats}
+  Agreed to terms and conditions = Yes
   `
 
   sendEmail(message);
